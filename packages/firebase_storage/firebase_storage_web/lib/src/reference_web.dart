@@ -38,9 +38,9 @@ class ReferenceWeb extends ReferencePlatform {
       : _path = path,
         super(storage, path) {
     if (_path != null && _path.startsWith(_storageUrlPrefix)) {
-      _ref = storage.fbStorage.refFromURL(_path);
+      _ref = storage._webStorage.refFromURL(_path);
     } else {
-      _ref = storage.fbStorage.ref(_path);
+      _ref = storage._webStorage.ref(_path);
     }
   }
 

@@ -20,9 +20,9 @@ void runFirebaseStorageWebTests() {
       fbStorage = MockFbStorage();
 
       storage = FirebaseStorageWeb.forMock(
+        fbStorage,
         app: FakeApp(),
         bucket: 'some-bucket',
-        fbStorage: fbStorage,
       );
     });
 
