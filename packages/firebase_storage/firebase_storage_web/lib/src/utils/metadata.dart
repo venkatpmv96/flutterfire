@@ -6,7 +6,8 @@ import 'package:firebase_storage_platform_interface/firebase_storage_platform_in
 import '../interop/storage.dart' as storage_interop;
 
 /// Converts FullMetadata coming from the JS Interop layer to FullMetadata for the plugin.
-FullMetadata fbFullMetadataToFullMetadata(storage_interop.FullMetadata metadata) {
+FullMetadata fbFullMetadataToFullMetadata(
+    storage_interop.FullMetadata metadata) {
   if (metadata == null) {
     return null;
   }
@@ -49,7 +50,8 @@ storage_interop.SettableMetadata settableMetadataToFbSettableMetadata(
 }
 
 /// Converts SettableMetadata from the plugin and an additional MD5 hash (as String) to an UploadMetadata for the JS Interop layer.
-storage_interop.UploadMetadata settableMetadataToFbUploadMetadata(SettableMetadata metadata,
+storage_interop.UploadMetadata settableMetadataToFbUploadMetadata(
+    SettableMetadata metadata,
     {String md5Hash}) {
   if (metadata == null) {
     return null;

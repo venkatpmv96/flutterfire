@@ -2,7 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-
 import 'package:firebase_storage_platform_interface/firebase_storage_platform_interface.dart';
 
 import 'interop/storage.dart' as storage_interop;
@@ -12,7 +11,8 @@ import 'utils/task.dart';
 /// Implementation for a [TaskSnapshotPlatform].
 class TaskSnapshotWeb extends TaskSnapshotPlatform {
   /// Create a TaskSnapshotWeb from its [ReferencePlatform] and a native [fb.UploadTaskSnapshot]
-  TaskSnapshotWeb(ReferencePlatform ref, storage_interop.UploadTaskSnapshot snapshot)
+  TaskSnapshotWeb(
+      ReferencePlatform ref, storage_interop.UploadTaskSnapshot snapshot)
       : _reference = ref,
         _snapshot = snapshot,
         super(fbTaskStateToTaskState(snapshot.state), null);
