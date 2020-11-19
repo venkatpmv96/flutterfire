@@ -5,7 +5,7 @@
 import 'dart:html' as html;
 import 'dart:typed_data';
 
-import 'package:firebase/firebase.dart' as fb;
+import 'package:firebase_storage_web/src/interop/storage.dart' as fb;
 
 import 'package:firebase_storage_platform_interface/firebase_storage_platform_interface.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -24,7 +24,7 @@ void runReferenceTests() {
     setUp(() {
       storage = MockStorageWeb();
       fbStorage = MockFbStorage();
-      when(storage.fbStorage).thenReturn(fbStorage);
+      when(storage.webStorage).thenReturn(fbStorage);
     });
 
     group('Constructor', () {

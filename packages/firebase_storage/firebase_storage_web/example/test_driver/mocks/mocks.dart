@@ -2,11 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:firebase/firebase.dart' as fb;
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:firebase_storage_platform_interface/firebase_storage_platform_interface.dart';
 import 'package:firebase_storage_web/firebase_storage_web.dart';
+import 'package:firebase_storage_web/src/interop/storage.dart' as fb;
+import 'package:firebase_core_web/firebase_core_web_interop.dart'
+    as core_interop;
 import 'package:mockito/mockito.dart';
 import 'package:test/fake.dart';
 
@@ -14,7 +16,7 @@ class FakeApp extends Fake implements FirebaseApp {}
 
 class FakeRef extends Fake implements ReferencePlatform {}
 
-class FakeFbError extends Fake implements fb.FirebaseError {
+class FakeFbError extends Fake implements core_interop.FirebaseError {
   @override
   String code;
 

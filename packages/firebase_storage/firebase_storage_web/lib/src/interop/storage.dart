@@ -2,9 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:js/js.dart';
 import 'package:firebase_core_web/firebase_core_web_interop.dart';
 import 'firebase_interop.dart' as firebase_interop;
+import 'storage_interop.dart' as storage_interop;
 
 export 'storage_interop.dart';
 

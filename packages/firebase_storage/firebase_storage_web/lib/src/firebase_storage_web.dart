@@ -20,7 +20,7 @@ typedef ReferenceBuilder = ReferencePlatform Function(
 /// The Web implementation of the FirebaseStoragePlatform.
 class FirebaseStorageWeb extends FirebaseStoragePlatform {
   /// The js-interop layer for Firebase Storage
-  final storage_interop.Storage _webStorage;
+  final storage_interop.Storage webStorage;
 
   // Same default as the method channel implementation
   int _maxDownloadRetryTime = Duration(minutes: 10).inMilliseconds;
@@ -29,18 +29,18 @@ class FirebaseStorageWeb extends FirebaseStoragePlatform {
   int _maxOperationRetryTime = Duration(minutes: 2).inMilliseconds;
 
   // Empty constructor. This is only used by the registerWith method.
-  FirebaseStorageWeb._nullInstance() : _webStorage = null;
+  FirebaseStorageWeb._nullInstance() : webStorage = null;
 
   /// Construct the plugin.
   /// (Web doesn't use the `bucket`, since the init happens in index.html)
   FirebaseStorageWeb({FirebaseApp app, String bucket})
-      : _webStorage =
+      : webStorage =
             storage_interop.getStorageInstance(core_interop.app(app?.name)),
         super(appInstance: app, bucket: bucket);
 
   /// Create a FirebaseStorageWeb injecting a [fb.Storage] object.
   @visibleForTesting
-  FirebaseStorageWeb.forMock(this._webStorage, {String bucket, FirebaseApp app})
+  FirebaseStorageWeb.forMock(this.webStorage, {String bucket, FirebaseApp app})
       : super(appInstance: app, bucket: bucket);
 
   /// Called by PluginRegistry to register this plugin for Flutter Web.
@@ -69,7 +69,7 @@ class FirebaseStorageWeb extends FirebaseStoragePlatform {
   /// The maximum time to retry uploads in milliseconds.
   @override
   int get maxUploadRetryTime {
-    return _webStorage.maxUploadRetryTime;
+    return webStorage.maxUploadRetryTime;
   }
 
   /// The maximum time to retry downloads in milliseconds.
@@ -107,13 +107,13 @@ class FirebaseStorageWeb extends FirebaseStoragePlatform {
   @override
   void setMaxOperationRetryTime(int time) {
     _maxOperationRetryTime = time;
-    _webStorage.setMaxOperationRetryTime(time);
+    webStorage.setMaxOperationRetryTime(time);
   }
 
   /// The new maximum upload retry time in milliseconds.
   @override
   void setMaxUploadRetryTime(int time) {
-    _webStorage.setMaxUploadRetryTime(time);
+    webStorage.setMaxUploadRetryTime(time);
   }
 
   /// The new maximum download retry time in milliseconds.

@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:firebase/firebase.dart' as fb;
+import 'package:firebase_storage_web/src/interop/storage.dart' as fb;
 
 import 'package:firebase_storage_platform_interface/firebase_storage_platform_interface.dart';
 import 'package:firebase_storage/firebase_storage.dart';

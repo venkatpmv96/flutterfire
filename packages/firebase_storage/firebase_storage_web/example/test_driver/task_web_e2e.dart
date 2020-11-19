@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-import 'package:firebase/firebase.dart' as fb;
+
+import 'package:firebase_storage_web/src/interop/storage.dart' as fb;
 
 import 'package:firebase_storage_platform_interface/firebase_storage_platform_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
